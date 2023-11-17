@@ -9,6 +9,7 @@ public class CrearBD {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		Connection conn=null;
 		Statement stat=null;
 		String sql="CREATE DATABASE simulacro";
