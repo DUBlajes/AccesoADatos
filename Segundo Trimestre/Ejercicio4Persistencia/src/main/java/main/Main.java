@@ -1,4 +1,6 @@
-package modelo;
+package main;
+
+import java.sql.Date;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,20 +18,22 @@ public class Main {
 		context.bind(sessionFactory.openSession());
 		try {
 			// Crear objeto fabricante
-			Fabricante fabrica = new Fabricante("Google España");
+			Videojuego juego = new Videojuego("Wow",2010, "Blizzard",80.0, "Juegardo espectacular", "Todas");
+			
+			Videojuego juego2=new Videojuego(2010, "Blizzard Entertainment", "World of Warcraft", "PC", 80.00, "Pedazo de juego");
 
 			// Obtener la sesión actual
 			Session session = context.currentSession();
 			// Iniciar transacción
 			session.beginTransaction();
 			// Guardar objeto en la base de datos
-			session.save(fabrica);
+			session.save(juego2);
 
 			// Hacer commit de la transacción
 			session.getTransaction().commit();
 
 			// Imprimir fabricante guardado en la base de datos
-			System.out.println("Fabricante: " + fabrica);
+			System.out.println("Videojuego: " + juego2);
 
 		} catch (Exception e) {
 			e.printStackTrace();

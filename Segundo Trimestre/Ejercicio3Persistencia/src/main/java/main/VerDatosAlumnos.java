@@ -1,12 +1,13 @@
-package modelo;
-
+package main;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.context.internal.ThreadLocalSessionContext;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
+import org.hibernate.query.Query;
+import java.util.List;
 
-public class Main {
+public class VerDatosAlumnos {
 
 	public static void main(String[] args) {
 		// Configurar la sesión de Hibernate
@@ -15,21 +16,26 @@ public class Main {
 		ThreadLocalSessionContext context = new ThreadLocalSessionContext((SessionFactoryImplementor) sessionFactory);
 		context.bind(sessionFactory.openSession());
 		try {
-			// Crear objeto fabricante
-			Fabricante fabrica = new Fabricante("Google España");
 
 			// Obtener la sesión actual
 			Session session = context.currentSession();
 			// Iniciar transacción
 			session.beginTransaction();
-			// Guardar objeto en la base de datos
-			session.save(fabrica);
+			
+			// Crear consulta HQL para seleccionar todos los registros de la tabla fabricante
+            String hql = "FROM Alumno";
+            Query<Alumno> query = session.createQuery(hql, Alumno.class);
 
-			// Hacer commit de la transacción
-			session.getTransaction().commit();
 
-			// Imprimir fabricante guardado en la base de datos
-			System.out.println("Fabricante: " + fabrica);
+            // Ejecutar consulta y obtener resultados
+            List<Alumno> alumnos = query.list();
+
+
+            // Imprimir resultados
+            System.out.println("Registros en la tabla fabricante:");
+            for (Alumno f : alumnos) {
+                System.out.println(f.toString());
+            }
 
 		} catch (Exception e) {
 			e.printStackTrace();
