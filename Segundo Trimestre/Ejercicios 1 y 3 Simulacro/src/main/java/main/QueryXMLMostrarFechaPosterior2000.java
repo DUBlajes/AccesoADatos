@@ -6,7 +6,7 @@ import org.xmldb.api.*;
 import javax.xml.transform.OutputKeys;
 import org.exist.xmldb.EXistResource;
 
-public class ConectarXML {
+public class QueryXMLMostrarFechaPosterior2000 {
 
 	// URI para conectarse a la base de datos XML existente en localhost en el
 	// puerto 8080
@@ -16,7 +16,7 @@ public class ConectarXML {
 	private static String COLLECTION = "";
 
 	// Nombre del recurso XML dentro de la colección
-	private static String RESOURCE = "series.xml";
+	private static String RESOURCE = "libros.xml";
 
 	public static void main(String args[]) throws Exception {
 
@@ -24,7 +24,7 @@ public class ConectarXML {
 
 		// Inicializa el controlador de la base de datos
 		Class cl = Class.forName(driver);
-		Database database = (Database) cl.getDeclaredConstructor().newInstance();
+		Database database = (Database) cl.newInstance();
 		database.setProperty("create-database", "true");
 		DatabaseManager.registerDatabase(database);
 
@@ -42,10 +42,20 @@ public class ConectarXML {
 
 			// Verifica si el recurso existe
 			if (res == null) {
-				System.out.println("¡Base de datos no encontrada!");
+				System.out.println("Base de datos no encontrada!");
 			} else {
-				// Imprime el contenido del recurso
-				System.out.println(res.getContent());
+				// Ejecuta la consulta XPath
+				XPathQueryService xpathService = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+				xpathService.setProperty("indent", "yes");
+				String xquery = "/libreria/libro[titulo='1984']"; 
+				ResourceSet result = xpathService.query(xquery);
+
+				// Imprime los resultados de la consulta
+				ResourceIterator i = result.getIterator();
+				while (i.hasMoreResources()) {
+					Resource r = i.nextResource();
+					System.out.println(r.getContent());
+				}
 			}
 		} finally {
 			// Limpieza de recursos

@@ -16,7 +16,7 @@ public class ConectarXML {
 	private static String COLLECTION = "";
 
 	// Nombre del recurso XML dentro de la colección
-	private static String RESOURCE = "series.xml";
+	private static String RESOURCE = "libros.xml";
 
 	public static void main(String args[]) throws Exception {
 

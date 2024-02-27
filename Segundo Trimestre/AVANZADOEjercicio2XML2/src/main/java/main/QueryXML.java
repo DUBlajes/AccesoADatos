@@ -16,7 +16,7 @@ public class QueryXML {
 	private static String COLLECTION = "";
 
 	// Nombre del recurso XML dentro de la colección
-	private static String RESOURCE = "libros.xml";
+	private static String RESOURCE = "series.xml";
 
 	public static void main(String args[]) throws Exception {
 
@@ -47,7 +47,7 @@ public class QueryXML {
 				// Ejecuta la consulta XPath
 				XPathQueryService xpathService = (XPathQueryService) col.getService("XPathQueryService", "1.0");
 				xpathService.setProperty("indent", "yes");
-				String xquery = "/libreria/libro[titulo='1984']"; 
+				String xquery = "/series/serie[inicio_emision>2000]";
 				ResourceSet result = xpathService.query(xquery);
 
 				// Imprime los resultados de la consulta
