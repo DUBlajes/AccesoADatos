@@ -1,0 +1,44 @@
+<series>
+    <serie>
+        <titulo>Star Trek: The Original Series</titulo>
+        <temporadas>3</temporadas>
+        <inicio_emision>1966</inicio_emision>
+        <fin_emision>1969</fin_emision>
+    </serie>
+    <serie>
+        <titulo>Star Trek: The Animated Series</titulo>
+        <temporadas>1</temporadas>
+        <inicio_emision>1973</inicio_emision>
+        <fin_emision>1974</fin_emision>
+    </serie>
+    <serie>
+        <titulo>Star Trek: The Next Generation</titulo>
+        <temporadas>7</temporadas>
+        <inicio_emision>1987</inicio_emision>
+        <fin_emision>1994</fin_emision>
+    </serie>
+    <serie>
+        <titulo>Star Trek: Deep Space Nine</titulo>
+        <temporadas>7</temporadas>
+        <inicio_emision>1993</inicio_emision>
+        <fin_emision>1999</fin_emision>
+    </serie>
+    <serie>
+        <titulo>Star Trek: Voyager</titulo>
+        <temporadas>7</temporadas>
+        <inicio_emision>1995</inicio_emision>
+        <fin_emision>2001</fin_emision>
+    </serie>
+    <serie>
+        <titulo>Star Trek: Enterprise</titulo>
+        <temporadas>4</temporadas>
+        <inicio_emision>2001</inicio_emision>
+        <fin_emision>2005</fin_emision>
+    </serie>
+    <serie>
+        <titulo>Star Trek: Discovery</titulo>
+        <temporadas>3</temporadas>
+        <inicio_emision>2017</inicio_emision>
+        <fin_emision>2022</fin_emision>
+    </serie>
+</series>
